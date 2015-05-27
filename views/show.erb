@@ -1,0 +1,20 @@
+<ul>
+    <div>
+      <iframe src="<%= @video['url'] %>"></iframe>
+    </div>
+    <p>
+      <%= @video['title'] %>
+    </p>
+    <p>
+      <%= @video['genre'] %>
+    </p>
+    <p>
+      <%= @video['description'] %>
+    </p>
+</ul>
+
+<button><a href="/<%= params[:id] %>/edit">Edit</a></button>
+
+<form action="/videos/<%= params[:id] %>/delete" method="post">
+  <button name="_method" value="delete">Delete</button>
+</form>
