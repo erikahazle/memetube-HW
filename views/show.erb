@@ -13,7 +13,7 @@
     </p>
 </ul>
 
-<button><a href="/<%= params[:id] %>/edit">Edit</a></button>
+<button><a href="/videos/<%= params[:id] %>/edit">Edit</a></button>
 
 <form action="/videos/<%= params[:id] %>/delete" method="post">
   <button name="_method" value="delete">Delete</button>

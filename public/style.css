@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  background-color: #E3E3E3;
+}
+
+nav {
+  background-color: #6B2C68;
+}
+
+.nav-item {
+  display: inline-block;
+  padding: 20px;
+}
+
+.nav-item:hover {
+  font-size: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  font-family: 'Francois One', sans-serif;
+  color: white;
+}
+
+nav a:hover {
+  color: #99E897;
+}

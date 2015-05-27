@@ -4,13 +4,14 @@ require 'pg'
 require 'pry'
 
 get '/' do
+  sql = ("select * from videos offset floor (random() * (select count(*) from videos)) limit 1;")
+  @video = run_sql(sql).first
   erb :index
 end
 
 get '/videos' do
   sql = "SELECT * FROM videos"
-  @library = run_sql(sql)
-
+  @library = run_sql(sql).to_a
   erb :videos
 end
 
@@ -21,7 +22,7 @@ end
 post '/videos' do
   sql = "INSERT INTO videos (title, description, url, genre) VALUES ('#{params['title']}', '#{params['description']}', '#{params['url']}', '#{params['genre']}')"
   run_sql(sql)
-  erb :videos
+  redirect to ('/videos')
 end
 
 get '/videos/:id' do
@@ -36,8 +37,16 @@ get '/videos/:id/edit' do
   erb :edit
 end
 
-get '/videos/:id/delete' do
+post '/videos/:id' do
+  sql = "UPDATE videos SET title = '#{params['title']}', description = '#{params['description']}', url = '#{params['url']}', genre = '#{params['genre']}' WHERE id=#{params[:id]}"
+  run_sql(sql)
+  redirect to ("/videos/#{params[:id]}")
+end
 
+delete '/videos/:id/delete' do
+  sql = "DELETE FROM videos WHERE id=#{params[:id]}"
+  run_sql(sql)
+  redirect to ("/videos")
 end
 
 

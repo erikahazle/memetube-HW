@@ -4,7 +4,7 @@
   <% @library.each do |video| %>
     <div>
       <iframe src="<%= video['url'] %>"></iframe>
-      <%= video['title'] %>
+      <a href="/videos/<%= video ['id'] %>"><%= video['title'] %></a>
     </div>
   <% end %>
 </ul>
