@@ -8,11 +8,13 @@
 <body>
   <header>
     <nav>
-      <li class="nav-item"><a href="/">Home</a></li>
+      <li class="nav-item"><a href="/" id="brand-logo">MEMETUBE</a></li>
       <li class="nav-item"><a href="/videos">Videos</a></li>
       <li class="nav-item"><a href="/videos/new">Add new video</a></li>
     </nav>
   </header>
-  <%= yield %>
+  <div class="wrapper">
+    <%= yield %>
+  </div>
 </body>
 </html>
