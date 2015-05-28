@@ -12,7 +12,7 @@
   <%= @video['description'] %>
 </p>
 
-<button><a href="/videos/<%= params[:id] %>/edit" class="show-buttons">Edit</a></button>
+<button class="show-buttons"><a href="/videos/<%= params[:id] %>/edit">Edit</a></button>
 
 <form action="/videos/<%= params[:id] %>/delete" method="post">
   <button name="_method" value="delete" class="show-buttons">Delete</button>
